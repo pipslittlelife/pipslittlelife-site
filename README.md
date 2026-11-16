@@ -11,15 +11,14 @@ window.PIP = { buyUrl: "https://buy.stripe.com/…", price: "$9.99" };
 
 While `buyUrl` is empty, every Buy button says "Coming soon · tell me when" and opens an email to support@.
 
-## Publish (Cloudflare Pages, free)
-1. Put this `website` folder in its own GitHub repo (it can be public; nothing secret is in here).
-2. Cloudflare dashboard → Workers & Pages → Create → Pages → connect that repo.
-   Build command: *(none)*. Output directory: `/`.
-3. In the project's **Custom domains**, add `pipslittlelife.com` (and `www.pipslittlelife.com`).
-   Cloudflare shows the DNS records to add.
-4. Porkbun → Domain Management → pipslittlelife.com → DNS: add those records. Leave the email-forwarding (MX) records alone.
-
-Every push to the repo republishes the site.
+## Publish (GitHub Pages, free)
+The site lives in the public repo `tdberghman/pipslittlelife-site`; every push to `main` republishes it.
+- Repo → Settings → Pages: Source = "Deploy from a branch", branch `main`, folder `/ (root)`.
+- Custom domain: `pipslittlelife.com` (the `CNAME` file keeps it set). Tick "Enforce HTTPS" once it's offered.
+- Porkbun DNS for pipslittlelife.com:
+  - `A` records on the root (`@`, host left blank): 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+  - `CNAME` `www` → `tdberghman.github.io`
+  - Leave the email-forwarding (MX/TXT) records alone.
 
 ## Preview locally
 ```
