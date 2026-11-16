@@ -146,3 +146,8 @@ details p { margin: 0 0 14px; color: var(--ink-soft); }
   .clip { scroll-snap-align: start; }
 }
 @media (max-width: 560px) { .clips { grid-auto-columns: 64%; } }
+
+/* hands-off note in the hero */
+.hands-off { margin: 0; font-size: 1.05rem; color: var(--ink-soft); max-width: 36em; }
+.hands-off b { color: var(--leaf); }
+@media (max-width: 760px) { .hands-off { margin-inline: auto; } }
