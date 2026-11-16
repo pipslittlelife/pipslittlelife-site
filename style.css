@@ -134,3 +134,15 @@ details p { margin: 0 0 14px; color: var(--ink-soft); }
 .soon-note { color: var(--ink-soft); font-size: .92rem; margin: 14px 0 0; max-width: 34em; }
 .get .soon-note { margin-inline: auto; }
 @media (max-width: 760px) { .hero .soon-note { margin-inline: auto; } }
+
+/* short clips */
+.clips { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.clip { margin: 0; }
+.clip video { width: 100%; aspect-ratio: 9 / 16; border-radius: 18px; box-shadow: var(--shadow); background: #cfe6ff; cursor: pointer; display: block; }
+.clip figcaption { font-weight: 700; font-size: .95rem; margin-top: 10px; color: var(--ink); }
+@media (max-width: 900px) {
+  .clips { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 46%; overflow-x: auto;
+           scroll-snap-type: x mandatory; padding-bottom: 8px; margin-inline: -16px; padding-inline: 16px; }
+  .clip { scroll-snap-align: start; }
+}
+@media (max-width: 560px) { .clips { grid-auto-columns: 64%; } }
