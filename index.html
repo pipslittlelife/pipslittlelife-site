@@ -46,6 +46,8 @@
         <a class="btn buy" href="#get">Get Pip</a>
         <a class="btn btn-ghost" href="#watch">▶ Watch him</a>
       </div>
+      <p class="soon-note" hidden>Pip isn't on sale just yet. The button opens your email app with a short note to us;
+        send it and we'll email you back when he launches.</p>
     </div>
     <div class="hero-art"><img src="assets/pip-wave.png" alt="Pip, a little green sprout, waving hello" width="321" height="345"></div>
   </section>
@@ -105,6 +107,7 @@
     <h2>Bring Pip home</h2>
     <p class="sub">One purchase, yours to keep. No subscription, no ads, no accounts.</p>
     <a class="btn btn-big buy" href="#get">Get Pip</a>
+    <p class="soon-note" hidden>Opens your email app with a ready-to-send note. We'll reply when Pip launches.</p>
     <p class="fine">Windows 10 or 11 · about a 45 MB download · works offline</p>
   </section>
 
@@ -141,10 +144,13 @@
         a.href = cfg.buyUrl;
         if (cfg.price && a.classList.contains("btn-big")) a.textContent = "Get Pip · " + cfg.price;
       } else {
-        a.href = "mailto:support@pipslittlelife.com?subject=Tell%20me%20when%20Pip%20launches";
-        if (!a.classList.contains("btn-small")) a.textContent = "Coming soon · tell me when";
+        a.href = "mailto:support@pipslittlelife.com?subject=Tell%20me%20when%20Pip%20launches"
+          + "&body=Hi!%20Please%20let%20me%20know%20when%20Pip%27s%20Little%20Life%20is%20available.";
+        a.title = "Opens your email app with a note to us, ready to send";
+        if (!a.classList.contains("btn-small")) a.textContent = "✉️ Coming soon · email me at launch";
       }
     });
+    document.querySelectorAll(".soon-note").forEach(function (n) { n.hidden = ready; });
     document.getElementById("yr").textContent = new Date().getFullYear();
   })();
 </script>

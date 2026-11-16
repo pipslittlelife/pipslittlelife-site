@@ -130,3 +130,7 @@ details p { margin: 0 0 14px; color: var(--ink-soft); }
 .doc-wrap { padding: 30px 16px 0; }
 .doc h1 { font-size: 2.2rem; }
 .doc h2 { font-size: 1.3rem; margin-top: 1.6em; }
+
+.soon-note { color: var(--ink-soft); font-size: .92rem; margin: 14px 0 0; max-width: 34em; }
+.get .soon-note { margin-inline: auto; }
+@media (max-width: 760px) { .hero .soon-note { margin-inline: auto; } }
