@@ -1,0 +1,6 @@
+# This repo is public. The paid installer and the post-purchase page must never be pushed here.
+*.exe
+*.msi
+*.zip
+dl-*/
+thanks-*.html

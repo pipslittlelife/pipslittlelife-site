@@ -151,3 +151,16 @@ details p { margin: 0 0 14px; color: var(--ink-soft); }
 .hands-off { margin: 0; font-size: 1.05rem; color: var(--ink-soft); max-width: 36em; }
 .hands-off b { color: var(--leaf); }
 @media (max-width: 760px) { .hands-off { margin-inline: auto; } }
+
+/* launch offer + phone note */
+.promo { display: inline-block; background: #fff6d9; color: var(--ink); border-radius: 999px; padding: 8px 16px;
+  font-size: .95rem; margin: 16px 0 0; }
+.promo .code { font-family: "Fredoka", sans-serif; letter-spacing: .06em; background: #fff; border: 2px dashed #f2c230;
+  border-radius: 8px; padding: 0 6px; }
+.phone-note { background: rgba(255,255,255,.8); border-radius: 16px; padding: 14px 16px; margin: 16px 0 0;
+  max-width: 34em; text-align: left; }
+.phone-note p { margin: 0 0 10px; color: var(--ink-soft); font-size: .95rem; }
+.phone-note .btn { padding: 10px 18px; box-shadow: 0 4px 0 #c7cfe0; border: 0; font: inherit; font-weight: 700; cursor: pointer; }
+.get .phone-note { margin-inline: auto; }
+.get .promo { display: table; margin: 16px auto 0; }
+@media (max-width: 760px) { .hero .phone-note { margin-inline: auto; } }

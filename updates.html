@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Updates · Pip's Little Life</title>
+<link rel="icon" type="image/png" href="assets/pip-wave.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .status { border-radius: 16px; padding: 16px 18px; margin: 0 0 8px; background: #eef7ea; }
+  .status.new { background: #fff6d9; }
+  .status b { color: var(--ink); }
+  .release { border-top: 1px solid rgba(31,42,68,.08); padding-top: 14px; margin-top: 14px; }
+  .release h3 { font-size: 1.1rem; margin-bottom: 4px; }
+  .release .when { color: var(--ink-soft); font-size: .92rem; margin: 0 0 6px; }
+</style>
+<script>
+  /* The newest version. When you release one: put it first here (and bump VERSION + RELEASED in pip_pet/about.py). */
+  window.PIP_RELEASES = [
+    { version: "0.9.0", date: "November 2026", notes: ["The first Pip!"] }
+  ];
+</script>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html"><img src="assets/pip-wave.png" alt="" width="34" height="37">Pip's Little Life</a>
+  <nav><a href="index.html">Home</a></nav>
+</header>
+<div class="doc-wrap">
+<article class="doc">
+  <h1>Updates</h1>
+  <p class="status" id="status">The newest Pip is version <b id="latest">0.9.0</b>.</p>
+
+  <h2>How to get the newest Pip</h2>
+  <p><b>Bought Pip on this website?</b> Open the download page from your purchase (the page you landed on after paying;
+    we suggested bookmarking it) and download Pip again. Run the installer: it updates Pip in place and keeps Pip's look,
+    pet and everything Pip has built. Lost the link? Email
+    <a href="mailto:support@pipslittlelife.com">support@pipslittlelife.com</a> with your receipt and we'll send it.</p>
+  <p><b>Got Pip from the Microsoft Store or Steam?</b> Updates arrive on their own.</p>
+  <p>Pip never goes online to check for updates. That's why Pip sends you here instead.</p>
+
+  <h2>What's new</h2>
+  <div id="releases"></div>
+</article>
+</div>
+<footer class="foot">
+  <p><a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> ·
+    <a href="mailto:support@pipslittlelife.com">support@pipslittlelife.com</a></p>
+</footer>
+<script>
+  (function () {
+    var rel = window.PIP_RELEASES, latest = rel[0].version;
+    document.getElementById("latest").textContent = latest;
+    // Pip's "Check for updates" opens this page as updates.html?v=<the version you have>
+    var have = (location.search.match(/[?&]v=([0-9.]+)/) || [])[1];
+    function newer(a, b) {                       // is version a newer than b?
+      var x = a.split(".").map(Number), y = b.split(".").map(Number);
+      for (var i = 0; i < Math.max(x.length, y.length); i++) {
+        if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0);
+      }
+      return false;
+    }
+    var s = document.getElementById("status");
+    if (have && newer(latest, have)) {
+      s.className = "status new";
+      s.innerHTML = "You have Pip <b>" + have + "</b>. A newer Pip is out: version <b>" + latest +
+        "</b>! See below for how to get it.";
+    } else if (have) {
+      s.innerHTML = "You have Pip <b>" + have + "</b>, the newest version. You're all set!";
+    }
+    var box = document.getElementById("releases");
+    rel.forEach(function (r) {
+      var d = document.createElement("div"); d.className = "release";
+      var h = document.createElement("h3"); h.textContent = "Version " + r.version;
+      var w = document.createElement("p"); w.className = "when"; w.textContent = r.date;
+      var ul = document.createElement("ul");
+      r.notes.forEach(function (n) { var li = document.createElement("li"); li.textContent = n; ul.appendChild(li); });
+      d.appendChild(h); d.appendChild(w); d.appendChild(ul); box.appendChild(d);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -14,12 +14,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=3">
 <script>
   /* ===== The one thing to fill in when you're ready to sell =====
      buyUrl: your Stripe (or Lemon Squeezy) checkout link.  price: shown on the buttons, e.g. "$9.99".
-     While buyUrl is empty, the buttons say "Coming soon" and email you instead. */
-  window.PIP = { buyUrl: "", price: "" };
+     While buyUrl is empty, the buttons say "Coming soon" and email you instead, and the launch offer stays hidden.
+     NOT LAUNCHED YET: the Stripe link is kept out of this public repo on purpose. It's pasted in on launch day,
+     as the last step of the launch checklist (Pip/LAUNCH-CHECKLIST.md). */
+  window.PIP = { buyUrl: "", price: "$6.99",
+                 /* launch offer: shown until the end of this day, then hides itself */
+                 promo: { code: "LAUNCH", off: "$2 off", until: "2027-01-31" },
+                 /* the download service's "lost your link?" page, once it's deployed: https://…workers.dev/lost */
+                 lostUrl: "" };
 </script>
 </head>
 <body>
@@ -48,6 +54,12 @@
         <a class="btn buy" href="#get">Get Pip</a>
         <a class="btn btn-ghost" href="#watch">▶ Watch Pip</a>
       </div>
+      <p class="promo" hidden></p>
+      <div class="phone-note" hidden>
+        <p><b>📱 On your phone?</b> Pip lives on Windows PCs. Buy here now and we'll email you the download link to open
+          on your computer. Or send this page to yourself for later.</p>
+        <button type="button" class="btn btn-ghost send-pc">📲 Send to my computer</button>
+      </div>
       <p class="soon-note" hidden>Pip isn't on sale just yet. The button opens your email app with a short note to us;
         send it and we'll email you back when Pip launches.</p>
     </div>
@@ -66,24 +78,24 @@
     <p class="sub">A few of the things you might catch Pip doing.</p>
     <div class="clips">
       <figure class="clip">
-        <video src="assets/clips/judges.mp4" poster="assets/clips/judges.jpg" muted loop playsinline preload="none"
-               aria-label="Pip jumps off a swing and three judges score the landing"></video>
-        <figcaption>🏅 The swing judges</figcaption>
+        <video src="assets/clips/magic.mp4" poster="assets/clips/magic.jpg" muted loop playsinline preload="none"
+               aria-label="Pip puts on a magic show, pulls a rabbit named Gerald out of a hat, and a trick goes slightly wrong"></video>
+        <figcaption>🎩 The Great Pip</figcaption>
       </figure>
       <figure class="clip">
-        <video src="assets/clips/fishing.mp4" poster="assets/clips/fishing.jpg" muted loop playsinline preload="none"
-               aria-label="Pip fishing over the edge of a window until the line snaps"></video>
-        <figcaption>🎣 The big one</figcaption>
+        <video src="assets/clips/superhero.mp4" poster="assets/clips/superhero.jpg" muted loop playsinline preload="none"
+               aria-label="Pip in a cape leaps to the rescue, forgets how to fly, and spins the sprout like a propeller"></video>
+        <figcaption>🦸 Super Pip</figcaption>
       </figure>
       <figure class="clip">
-        <video src="assets/clips/lemonade.mp4" poster="assets/clips/lemonade.jpg" muted loop playsinline preload="none"
-               aria-label="Pip runs a lemonade stand and drinks the stock"></video>
-        <figcaption>🍋 Side hustle</figcaption>
+        <video src="assets/clips/painting.mp4" poster="assets/clips/painting.jpg" muted loop playsinline preload="none"
+               aria-label="Pip paints a landscape on an easel and calls it View From the Taskbar"></video>
+        <figcaption>🎨 A little masterpiece</figcaption>
       </figure>
       <figure class="clip">
-        <video src="assets/clips/seesaw.mp4" poster="assets/clips/seesaw.jpg" muted loop playsinline preload="none"
-               aria-label="Pip on a seesaw with a puppy"></video>
-        <figcaption>🐶 Best buddies</figcaption>
+        <video src="assets/clips/bungee.mp4" poster="assets/clips/bungee.jpg" muted loop playsinline preload="none"
+               aria-label="Pip puts on a harness and bungee jumps off the top of a window"></video>
+        <figcaption>🪢 Safety first</figcaption>
       </figure>
       <figure class="clip">
         <video src="assets/clips/jetsetter.mp4" poster="assets/clips/jetsetter.jpg" muted loop playsinline preload="none"
@@ -143,6 +155,12 @@
     <h2>Bring Pip home</h2>
     <p class="sub">One purchase, yours to keep. No subscription, no ads, no accounts.</p>
     <a class="btn btn-big buy" href="#get">Get Pip</a>
+    <p class="promo" hidden></p>
+    <div class="phone-note" hidden>
+      <p><b>📱 On your phone?</b> Pip lives on Windows PCs. Buy here now and we'll email you the download link to open
+        on your computer. Or send this page to yourself for later.</p>
+      <button type="button" class="btn btn-ghost send-pc">📲 Send to my computer</button>
+    </div>
     <p class="soon-note" hidden>Opens your email app with a ready-to-send note. We'll reply when Pip launches.</p>
     <p class="fine">Windows 10 or 11 · about a 45 MB download · works offline</p>
   </section>
@@ -165,14 +183,18 @@
       <p>Press <b>Ctrl + Alt + P</b> to hide Pip and bring Pip back. To close, right-click Pip and choose "Say bye to Pip".</p></details>
     <details><summary>Mac or phone?</summary>
       <p>Windows only for now.</p></details>
+    <details><summary>Where's my download?</summary>
+      <p>Right after you pay, you land on your download page, and we email you the same link (look for "Your Pip
+        download link"). It keeps working, so you can download Pip again any time.
+        <span class="lost-link" hidden>Lost the email? <a href="#">Get your link again</a>.</span></p></details>
     <details><summary>Refunds?</summary>
-      <p>If Pip isn't for you, email us within 14 days and we'll refund you.</p></details>
+      <p>If Pip isn't for you, email us within 14 days and we'll refund you in full (see our <a href="terms.html">terms</a>).</p></details>
   </section>
 </main>
 
 <footer class="foot">
   <p><img src="assets/pip-wave.png" alt="" width="24" height="26"> Pip's Little Life</p>
-  <p><a href="mailto:support@pipslittlelife.com">support@pipslittlelife.com</a> · <a href="privacy.html">Privacy</a></p>
+  <p><a href="mailto:support@pipslittlelife.com">support@pipslittlelife.com</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="updates.html">Updates</a></p>
   <p class="copy">© <span id="yr">2026</span> Pip's Little Life</p>
 </footer>
 
@@ -192,6 +214,34 @@
       }
     });
     document.querySelectorAll(".soon-note").forEach(function (n) { n.hidden = ready; });
+    if (cfg.lostUrl) document.querySelectorAll(".lost-link").forEach(function (n) {
+      n.querySelector("a").href = cfg.lostUrl; n.hidden = false;
+    });
+    // launch offer, until the end of promo.until
+    var pr = cfg.promo;
+    if (ready && pr && new Date() <= new Date(pr.until + "T23:59:59")) {
+      var end = new Date(pr.until + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      document.querySelectorAll(".promo").forEach(function (n) {
+        n.innerHTML = "🎉 Launch offer: <b>" + pr.off + "</b> with code <b class='code'>" + pr.code +
+          "</b> at checkout, until " + end + ".";
+        n.hidden = false;
+      });
+    }
+    // phones and tablets: Pip needs a Windows PC, so offer to send the site to yourself
+    var mobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+    if (mobile) {
+      document.querySelectorAll(".phone-note").forEach(function (n) { n.hidden = false; });
+      var home = "https://pipslittlelife.com/";
+      var mail = "mailto:?subject=" + encodeURIComponent("Pip's Little Life, for my PC") +
+        "&body=" + encodeURIComponent("Open this on my Windows PC: " + home);
+      document.querySelectorAll(".send-pc").forEach(function (b) {
+        b.addEventListener("click", function () {
+          if (navigator.share) {          // the phone's share sheet: email, message, AirDrop, notes…
+            navigator.share({ title: "Pip's Little Life", text: "Get Pip on my PC", url: home }).catch(function () {});
+          } else { location.href = mail; }
+        });
+      });
+    }
     document.getElementById("yr").textContent = new Date().getFullYear();
     // the short clips play (silently) while they're on screen, and pause when scrolled away. On a phone they sit in
     // a swipe row with the next one peeking in: there, only the one you're looking at plays.
