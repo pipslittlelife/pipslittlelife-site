@@ -12,12 +12,12 @@ window.PIP = { buyUrl: "https://buy.stripe.com/…", price: "$9.99" };
 While `buyUrl` is empty, every Buy button says "Coming soon · tell me when" and opens an email to support@.
 
 ## Publish (GitHub Pages, free)
-The site lives in the public repo `tdberghman/pipslittlelife-site`; every push to `main` republishes it.
+The site lives in the public repo `pipslittlelife/pipslittlelife-site`; every push to `main` republishes it.
 - Repo → Settings → Pages: Source = "Deploy from a branch", branch `main`, folder `/ (root)`.
 - Custom domain: `pipslittlelife.com` (the `CNAME` file keeps it set). Tick "Enforce HTTPS" once it's offered.
 - Porkbun DNS for pipslittlelife.com:
   - `A` records on the root (`@`, host left blank): 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
-  - `CNAME` `www` → `tdberghman.github.io`
+  - `CNAME` `www` → `pipslittlelife.github.io`
   - Leave the email-forwarding (MX/TXT) records alone.
 
 ## Preview locally
