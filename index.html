@@ -6,7 +6,7 @@
 <title>Pip's Little Life · a desktop buddy who lives on your screen</title>
 <meta name="description" content="Pip is a tiny desktop buddy for Windows. Pip walks along your windows, plays sports, goes fishing, travels the world, camps under the stars and looks after a pet, all without any help. Totally hands-off.">
 <meta property="og:title" content="Pip's Little Life">
-<meta property="og:description" content="A desktop buddy who lives on your screen. You work. Pip lives a little life.">
+<meta property="og:description" content="A desktop buddy who lives on your screen. You do your thing. Pip lives a little life.">
 <meta property="og:image" content="https://pipslittlelife.com/assets/og-image.jpg">
 <meta property="og:url" content="https://pipslittlelife.com/">
 <meta name="twitter:card" content="summary_large_image">
@@ -19,13 +19,12 @@
   /* ===== The one thing to fill in when you're ready to sell =====
      buyUrl: your Stripe (or Lemon Squeezy) checkout link.  price: shown on the buttons, e.g. "$9.99".
      While buyUrl is empty, the buttons say "Coming soon" and email you instead, and the launch offer stays hidden.
-     NOT LAUNCHED YET: the Stripe link is kept out of this public repo on purpose. It's pasted in on launch day,
-     as the last step of the launch checklist (Pip/LAUNCH-CHECKLIST.md). */
-  window.PIP = { buyUrl: "", price: "$6.99",
+     Launched 2026-11-26 (Pip/LAUNCH-CHECKLIST.md section D). */
+  window.PIP = { buyUrl: "https://buy.stripe.com/dRm28q35B7hE0VS5QO4ko00", price: "$6.99",
                  /* launch offer: shown until the end of this day, then hides itself */
                  promo: { code: "LAUNCH", off: "$2 off", until: "2027-01-31" },
-                 /* the download service's "lost your link?" page, once it's deployed: https://…workers.dev/lost */
-                 lostUrl: "" };
+                 /* the download service's "lost your link?" page */
+                 lostUrl: "https://pip-download.pipslittlelife.workers.dev/lost" };
 </script>
 </head>
 <body>
@@ -44,7 +43,7 @@
   <section class="hero">
     <div class="hero-text">
       <p class="kicker">For Windows 10 &amp; 11</p>
-      <h1>You work.<br><span>Pip lives a little life.</span></h1>
+      <h1>You do your thing.<br><span>Pip lives a little life.</span></h1>
       <p class="lede">Pip is a tiny desktop buddy who lives on top of your windows. Pip strolls, snacks, plays,
         changes outfits, zips around in all kinds of vehicles, travels the world and camps under the stars,
         without getting in your way.</p>
@@ -69,7 +68,7 @@
   <!-- the trailer -->
   <section id="watch" class="video-wrap">
     <video src="assets/pip-trailer.mp4" poster="assets/pip-trailer-poster.jpg" autoplay muted loop playsinline
-           aria-label="A 30-second look at a day with Pip on the desktop"></video>
+           aria-label="A one-minute look at what Pip gets up to on the desktop"></video>
   </section>
 
   <!-- short clips -->
