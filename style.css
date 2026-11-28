@@ -119,6 +119,8 @@ summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; float: right; font-weight: 700; color: var(--leaf-dark); }
 details[open] summary::after { content: "–"; }
 details p { margin: 0 0 14px; color: var(--ink-soft); }
+details ul { margin: 0 0 14px; padding-left: 22px; color: var(--ink-soft); }
+details li { margin: 4px 0; }
 
 /* footer */
 .foot { text-align: center; padding: 60px 16px 40px; color: var(--ink-soft); }
